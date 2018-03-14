@@ -1,8 +1,31 @@
-// returns all of the unique characters (letters) in a string that is passed into the function
-// also returns a count of how many of each letter
-// the function must return an object with the letters as keys and the count as the value
+function countLetters(inputString) {
 
+  var shortString = removeSpaces(inputString);
 
-function countLetters() {
+  var letterObj = {}
 
+  for (var i = 0; i < shortString.length; i++) {
+
+      if (!letterObj[shortString[i]]) {
+        letterObj[shortString[i]] = 1;
+      }
+      else {
+        letterObj[shortString[i]]++;
+      }
+  }
+
+  return letterObj;
 }
+
+function removeSpaces(input) {
+  var output = "";
+
+  for (var i = 0; i < input.length; i++) {
+
+    if (input[i] !== " ") output = output + input[i];
+  }
+
+  return output;
+}
+
+console.log(countLetters("Lighthouse in the house"));
